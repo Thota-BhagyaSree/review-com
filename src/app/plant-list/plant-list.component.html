@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <td *ngFor="let p of allPlants">
+            <div><img src="/assets/images/Title.jpg"></div>
+            <div> {{p.plantId}}</div>
+            <div> <i>plantname:- </i> {{p.plantName}} </div>
+            <div> <i>typeOfPlant:- </i>{{p.typeOfPlant}}</div>
+            <div><i> bloomseason:- </i>{{p.bloomSeason}}</div>
+            <div><i>height:- </i>{{p.height}}</div>
+            <div><i>imagename:- </i>{{p.imageName}}</div>
+            <div><i>Discount:- </i>{{p.discount}}</div>
+            <div><i>Price:- </i>{{p.price}}</div><br />
+            <div><button value="view" (click)="viewProductDetails(p.plantId,p.plantName,p.typeOfPlant,p.height,p.price,p.bloomSeason)"> View Details</button></div>
+            <hr>
+            <button value="{{p.plantId}}" (click)="goForReview(p.plantId)" #plant class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                View Review
+              </button>
+            
+            
+              <div class="card card-body" *ngIf="showReview==true " >
+
+               Average Review <b> {{a}} </b>
+               <br/>
+               <div *ngFor="let x of allReviews">
+                  {{x.starRating}}
+                  <br/>
+                   {{x.msg}}
+                  
+                  </div>
+              </div>
+        </td>
+
+        </tr>
+        
+</table>
